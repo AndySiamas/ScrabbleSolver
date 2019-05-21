@@ -1,0 +1,167 @@
+.projects {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient(
+        $color-primary-dark,
+        rgba($color-primary-dark, 0.8)
+    );
+
+    &__header {
+        display: flex;
+        flex: 1;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 5rem;
+        margin-bottom: 3rem;
+        color: $color-white;
+    }
+
+    &__container {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+
+        // odd # projects should appear reversed
+        div:nth-child(odd) {
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        // odd # project titles should be on the right
+        div:nth-child(even) > div > a {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        // the project content div should be on the right side
+        div:nth-child(even) > div {
+            margin-left: auto;
+        }
+
+        // the project description should have a left text justification
+        div:nth-child(even) > div > p {
+            text-align: right;
+        }
+    }
+
+    &__row {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        padding: 8rem;
+
+        &::after {
+            display: block;
+            position: absolute;
+            top: 100%;
+            content: "";
+            height: 1px;
+            width: 50%;
+            background-color: rgba($color-white, 0.5);
+        }
+
+        @include respond(tablet-sm) {
+            padding: 5rem;
+        }
+
+        @include respond(mobile-md) {
+            padding: 3rem;
+        }
+    }
+
+    &__content {
+        padding: 0 5rem;
+        width: 40vw;
+
+        @include respond(tablet-md) {
+            width: 70vw;
+        }
+
+        @include respond(mobile-lg) {
+            width: 100vw;
+            padding: 0 2rem;
+        }
+        
+    }
+
+    &__title {
+        position: relative;
+        z-index: 5;
+        padding: 0.5 0;
+        font-size: 3.5rem;
+        @include transition-short(all);
+
+        // this is the block that expands when hovering an image
+        &::after {
+            display: block;
+            position: absolute;
+            content: "";
+            top: 100%;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: $color-white;
+            z-index: -1;
+            @include transition-med(all);
+        }
+
+        @include respond(mobile-md) {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__title-link {
+        display: flex;
+        justify-content: flex-start;
+        text-decoration: none;
+    }
+
+    &__description {
+        margin-top: 2rem;
+        font-size: 2rem;
+        font-weight: 300;
+        color: $color-white;
+    }
+
+    &__link {
+        height: 25vw;
+        width: 25vw;
+    }
+
+    &__link:hover &__img {
+        transform: scale(1.05);
+        filter: brightness(1.5) contrast(1.5);
+        animation: 1s widen infinite;
+    }
+
+    // the title background should appear when the image is hovered
+    &__link:hover + div > a > h5::after {
+        width: 100%;
+    }
+
+    &__img {
+        width: 100%;
+        outline: solid 1rem $color-white;
+        box-shadow: $box-shadow-dark;
+        cursor: pointer;
+        filter: brightness(1) contrast(1);
+        @include transition-short(all);
+
+        @include respond(mobile-lg) {
+            outline: solid 0.5rem $color-white;
+        }
+
+        @include respond(mobile-md) {
+            outline: solid 0.25rem $color-white;
+        }
+    }
+
+    &__date {
+        color: rgba($color-white, 0.8);
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        font-weight: 300;
+    }
+}

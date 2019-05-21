@@ -1,0 +1,142 @@
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    // background-color: $color-light-grey-1;
+    background-image: linear-gradient(
+        rgba($color-primary-light, .9),
+        rgba($color-primary-dark, .9)
+    ),
+    url('images/header2.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.form {
+    display: flex;
+    flex: 0 0 60%;
+    flex-direction: column;
+    height: 60%;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: $box-shadow-light;
+
+    &__header {
+        display: flex;
+        flex: 1 0;
+        justify-content: center;
+        align-items: center;
+        color: $color-primary-dark;
+    }
+
+    &__name-and-email {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex: 1;
+
+        @include respond(laptop) {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 5%;
+        }
+
+        & > * {
+            width: 95%;
+        }
+    }
+
+    &__message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 3 0;
+
+        &__box {
+            height: 80%;
+            width: 90%;
+            border-radius: 3px;
+            border: solid 1px $color-light-grey-2;
+            padding: 1rem;
+            font-family: inherit;
+            font-size: 1.8rem;
+            resize: none;
+            @include transition-short(all);
+
+            &:focus,
+            &:active {
+                outline: none;
+                box-shadow: $box-shadow-light;
+            }
+        }
+    }
+
+    &__submit {
+        display: flex;
+        flex: 1 0;
+        width: 95%;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+
+    &__success-message {
+        display: flex;
+        align-items: center;
+        font-family: inherit;
+        font-size: 1.4rem;
+        margin-right: 1rem;
+        height: 60%;
+        transition: all 1s;
+    }
+
+    &__group {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__input {
+        display: block;
+        width: 80%;
+        border-radius: 3px;
+        border: solid 1px $color-light-grey-2;
+        padding: 1rem;
+        font-family: inherit;
+        font-size: 1.8rem;
+
+        &:focus,
+        &:active {
+            outline: none;
+            box-shadow: $box-shadow-light;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $color-dark-grey-1;
+        }
+
+        @include respond(laptop) {
+            width: 100%;
+        }
+    }
+
+    #email {
+        @include respond(laptop) {
+            margin-top: 2.5rem;
+        }
+    }
+
+    @include respond(mobile-lg) {
+        flex: 0.8 0 75%;
+        height: 80%;
+    }
+}
+
+.successful {
+    color: $color-primary-dark;
+}
+
+.error {
+    color: $color-error;
+}

@@ -1,0 +1,10 @@
+//-------------------------------------
+// TRANSITIONS
+// ------------------------------------
+@mixin transition-short($property) {
+    transition: $property .3s ease-in-out;
+}
+
+@mixin transition-med($property) {
+    transition: $property .5s ease-in-out;
+}

@@ -1,0 +1,118 @@
+.header {
+    display: flex;
+    position: relative;
+    min-height: 40vw;
+    background-image: linear-gradient(
+        to right,
+        $color-primary-dark,
+        $color-primary-light
+    );
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1.5;
+        padding-top: 3rem;
+        padding-left: 8rem;
+        padding-right: 3rem;
+        z-index: 5;
+        animation-name: fadeIn;
+        animation-duration: 1.5s;
+
+        @include respond(computer-lg) {
+            padding-top: 3rem;
+            padding-left: 8rem;
+        }
+
+        @include respond(tablet) {
+            padding-top: 2rem;
+            padding-left: 5rem;
+        }
+
+        @include respond(mobile-lg) {
+            justify-content: flex-start;
+            margin-top: 1rem;
+        }
+
+        @include respond(slick) {
+            padding: 1rem;
+        }
+    }
+
+    &__slogan {
+        display: flex;
+        align-items: flex-end;
+        font-size: 6rem;
+        width: 50%;
+
+        @include respond(mobile-lg) {
+            font-size: 5.5rem;
+            width: 75%;
+        }
+
+        @include respond(mobile-md) {
+            font-size: 5rem;
+        }
+    }
+
+    &__description {
+        padding-top: 2rem;
+        font-size: 1.9rem;
+        font-weight: 300;
+        margin-right: 55%;
+        margin-bottom: .5rem;
+        color: $color-light-grey-1;
+
+        @include respond(tablet) {
+            margin-right: 25%;
+        }
+    }
+
+    &__signature-box {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    &__signature {
+        width: 25rem;
+        margin-bottom: 5rem;
+
+        @include respond(mobile-lg) {
+            width: 20rem;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url('./images/andy_header.png');
+        background-position: 100% 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        animation-name: fadeInImg;
+        animation-duration: 1.5s;
+
+        @include respond(tablet) {
+            opacity: 0.5;
+        }
+
+        @include respond(tablet-md) {
+            opacity: 0.3;
+        }
+
+        @include respond(mobile-lg) {
+            background-size: cover;
+            background-position: 9rem 0%;
+        }
+
+        @include respond(slick) {
+            background-position: 0% 0%;
+        }
+    }
+}

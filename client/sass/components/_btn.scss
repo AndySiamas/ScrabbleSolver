@@ -1,0 +1,23 @@
+.btn {
+    width: 10rem;
+    height: 4rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-family: inherit;
+    color: $color-white;
+    background-color: $color-primary-dark;
+    box-shadow: $box-shadow-light;
+    cursor: pointer;
+    @include transition-short(all);
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: $box-shadow-light;
+    }
+}

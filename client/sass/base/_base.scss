@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 125%;
+    scroll-behavior: smooth;
+
+    @include respond(computer-md) {
+        font-size: 70%;
+    }
+
+    @include respond(laptop) {
+        font-size: 62.5%;
+    }
+
+    @include respond(tablet) {
+        font-size: 60%;
+    }
+
+    @include respond(tablet-md) {
+        font-size: 58%;
+    }
+
+    @include respond(mobile-lg) {
+        font-size: 50%;
+    }
+
+    @include respond(slick) {
+        font-size: 20%;
+    }
+}
+
+body {
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: darken($color-primary-dark, 5);
+}
